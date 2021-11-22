@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cafe List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+      <h2><strong>Vegan Cafe</strong></h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Categories</th>
+            <th>Tags</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Zip_code</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for article in object_list %}
+                <tr>
+                <td>{{ article.name }}</td>
+                <td>{{ article.phone }}</td>
+                <td>{{ article.categories }}</td>
+                <td>{{ article.tags }}</td>
+                <td>{{ article.address }}</td>
+                <td>{{ article.city }}</td>
+                <td>{{ article.zip_code }}</td>
+                <td>{{ article.latitude }}</td>
+                <td>{{ article.longitude }}</td>
+                <td>{{ article.rating }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if is_paginated %}
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+          {% if page_obj.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+</body>
+</html>
