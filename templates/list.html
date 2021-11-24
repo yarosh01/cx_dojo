@@ -18,7 +18,7 @@
                     <h5 class="card-title">{{ article.name }}</h5>
                 </div>
                 <h6 class="card-subtitle small mb-2 text-muted ">{{ article.categories }}</h6>
-                <h6 class="card-subtitle small mb-2 text-muted ">{{ article.rating_google }}, {{ article.rating }}</h6>
+                <h6 class="card-subtitle small mb-2 text-muted ">{{ article.rating_google|default_if_none:""  }}, {{ article.rating }}</h6>
                 <p class="card-text text-muted ">Phone: {{ article.phone }}</p>
                 <p class="card-text text-muted ">Address: {{ article.address }}</p>
                 <p class="card-text text-muted ">City: {{ article.city }}</p>
@@ -27,7 +27,7 @@
                 <p class="card-text text-muted ">Longitude: {{ article.longitude }}</p>
                 <p class="card-text text-muted ">Tags: {{ article.tags }}</p>
             </div>
-            <a href="{{ article.website }}" class="btn btn-primary">Website</a>
+            <a href="{{ article.website|default_if_none:""  }}" class="btn btn-primary">Website</a>
         </div>
     {% endfor %}
 
