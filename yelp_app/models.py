@@ -14,8 +14,8 @@ class Cafe(models.Model):
     latitude = models.CharField(max_length=250)
     longitude = models.CharField(max_length=250)
     rating = models.CharField(max_length=250)
-    website = models.CharField(max_length=250)
-    rating_google = models.CharField(max_length=250)
+    website = models.CharField(max_length=250, null=True)
+    rating_google = models.CharField(max_length=250, null=True)
 
     create = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

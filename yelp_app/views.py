@@ -49,7 +49,7 @@ class SearchView(View):
 
                     Cafe.objects.update_or_create(**cafe_result)
 
-                    return redirect('cafe_list')
+                return redirect('cafe_list')
             else:
                 messages.warning(request, "Warning. Please input 'Vegan Cafe'.")
 
