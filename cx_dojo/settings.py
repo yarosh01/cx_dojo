@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -27,7 +27,6 @@ SECRET_KEY = 'django-insecure-oqmz07@)@ckzfz+tpx1w^!=zow0$5%%6c-j#dlnq($-pv^#oui
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -73,7 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cx_dojo.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -141,8 +139,15 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-YELP_API_KEY = '******'
+YELP_API_KEY = ''
+
+"""https://console.cloud.google.com/apis/dashboard and create API Token """
+GOOGLE_API_KEY = ''
 
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+MESSAGE_TAGS = {
+    messages.WARNING: 'alert-warning',
+}
